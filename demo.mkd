@@ -1,12 +1,11 @@
 ---
-title: Adding Files
+title: demo
 layout: default
 ---
 
-Chapter Contents
-----------------
-* This will become a table of contents (this text will be scraped).
-{:toc}
+# Chapter Contents
+- This will become a table of contents (this text will be scraped).
+- {:toc}
 
 #Storing Files
 
@@ -48,11 +47,11 @@ There are several ways to add files in Zotero itself.
 
 ###"New Item" Button
 
-You can add files as copies or links via the "New Item" button (![new item button](icons/toolbar-item-add.png)) at the top of the center column, and selecting either "Link to File…" or "Store Copy of File…". The files will appear as independent files.
+You can add files as copies or links via the "New Item" button (![new item button](icons/toolbar-item-add.png)) at the top of the center column, and selecting either "Link to File..." or "Store Copy of File...". The files will appear as independent files.
 
 ###"Add Attachment" Button and Menu
 
-After selecting a single item in the center column, you can add a file as a child attachment of that item. Click either the "Add Attachment" button (![add attachment button](icons/attach.png)) at the top of the center column, or right-click the item and go into the **Add Attachment** menu. Then select either "Attached Stored Copy of File…" or "Attach Link to File…".
+After selecting a single item in the center column, you can add a file as a child attachment of that item. Click either the "Add Attachment" button (![add attachment button](icons/attach.png)) at the top of the center column, or right-click the item and go into the **Add Attachment** menu. Then select either "Attached Stored Copy of File..." or "Attach Link to File...".
 
 ###Dragging Files
 
