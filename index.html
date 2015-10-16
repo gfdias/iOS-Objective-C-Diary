@@ -44,6 +44,8 @@
 <li><a href="#nstimer">NSTimer</a></li>
 </ul>
 
+<hr>
+
 <h2>
 <a id="purchasing-a-developer-license" class="anchor" href="#purchasing-a-developer-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Purchasing a developer license</h2>
 
@@ -56,14 +58,16 @@
 <li>Click <strong>Enroll</strong>
 </li>
 <li>Sign in or create a new Apple ID</li>
-<li>Purchase the license for iOS Development</li>
-</ol>
+<li>
+<p>Purchase the license for iOS Development</p>
+
+<hr>
 
 <h2>
 <a id="create-download-and-install-certificates" class="anchor" href="#create-download-and-install-certificates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create, download and install certificates</h2>
-
-<ol>
-<li>Go to <a href="http://developer.apple.com">http://developer.apple.com</a>
+</li>
+<li>
+<p>Go to <a href="http://developer.apple.com">http://developer.apple.com</a></p>
 
 <ul>
 <li>Enter <strong>member center</strong>
@@ -124,13 +128,12 @@
 <li> Create new project with same bundle identifier as the app added before</li>
 <li>Go to <em>Info.plist</em>
 </li>
-<li>Exchange <em>Bundle Identifier</em> for the one created before</li>
+<li>Exchange <em>Bundle Identifier</em> for the one created before
+***
+## Actions</li>
 </ol>
 </li>
 </ul>
-
-<h2>
-<a id="actions" class="anchor" href="#actions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Actions</h2>
 
 <p>Actions enable us to trigger objects to perform tasks.</p>
 
@@ -151,6 +154,8 @@
   <span class="pl-c">//DO SOMETHING</span>
 }</pre></div>
 
+<hr>
+
 <h2>
 <a id="outlets" class="anchor" href="#outlets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Outlets</h2>
 
@@ -166,6 +171,8 @@
 <div class="highlight highlight-source-objc"><pre><span class="pl-c">/* ViewController.h */</span>
 
 @property (weak, nonatomic) <span class="pl-k">IBOutlet</span> UILabel *label;</pre></div>
+
+<hr>
 
 <h2>
 <a id="labels" class="anchor" href="#labels" aria-hidden="true"><span class="octicon octicon-link"></span></a>Labels</h2>
@@ -186,6 +193,8 @@
 
 self.label.text = <span class="pl-s"><span class="pl-pds">@"</span>Hello World<span class="pl-pds">"</span></span>;</pre></div>
 
+<hr>
+
 <h2>
 <a id="textfield" class="anchor" href="#textfield" aria-hidden="true"><span class="octicon octicon-link"></span></a>TextField</h2>
 
@@ -204,6 +213,8 @@ self.label.text = <span class="pl-s"><span class="pl-pds">@"</span>Hello World<s
 <div class="highlight highlight-source-objc"><pre><span class="pl-c">/* Change label text to textField input */</span>
 
 self.label.text = self.textField.text;</pre></div>
+
+<hr>
 
 <h2>
 <a id="text-properties" class="anchor" href="#text-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Text Properties</h2>
@@ -261,6 +272,8 @@ self.label.textAlignment = NSTextAlignmentCenter;
 self.label.font = [UIFont <span class="pl-c1">fontWithName:</span><span class="pl-s"><span class="pl-pds">@"</span>BebasNeue<span class="pl-pds">"</span></span> <span class="pl-c1">size:</span><span class="pl-c1">50</span>];
 </pre></div>
 
+<hr>
+
 <h2>
 <a id="dismissing-the-keyboard" class="anchor" href="#dismissing-the-keyboard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dismissing the Keyboard</h2>
 
@@ -273,6 +286,8 @@ self.label.font = [UIFont <span class="pl-c1">fontWithName:</span><span class="p
 <div class="highlight highlight-source-objc"><pre><span class="pl-c">/* For compatibility with older iOS versions, add this to the action button method*/</span>
 
 [<span class="pl-v">self</span> <span class="pl-c1">resignFirstResponder</span>];</pre></div>
+
+<hr>
 
 <h2>
 <a id="nstimer" class="anchor" href="#nstimer" aria-hidden="true"><span class="octicon octicon-link"></span></a>NSTimer</h2>
@@ -306,7 +321,7 @@ self.label.font = [UIFont <span class="pl-c1">fontWithName:</span><span class="p
 
 <hr>
 
-<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* ViewController.m </span>
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* ViewController.m</span>
 <span class="pl-c"></span>
 <span class="pl-c">   @implementation ViewControler</span>
 <span class="pl-c"></span>
