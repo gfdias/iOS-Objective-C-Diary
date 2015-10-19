@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>iOS &amp; Objective-C Diary by Gonçalo Dias</title>
+    <title>iOS &amp; Objective-C Diary by gfdias</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -30,23 +30,375 @@
 <hr>
 
 <h2>
-<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table of contents:</h2>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table of contents</h2>
+
+<ul>
+<li><a href="#purchasing-a-developer-license">Purchasing a developer license</a></li>
+<li><a href="#create-download-and-install-certificates">Create, download and install certificates</a></li>
+<li><a href="#create-an-app-id">Create an App ID</a></li>
+<li><a href="#objective-c-variable-types">Objective-C variable types</a></li>
+<li><a href="#actions">Actions</a></li>
+<li><a href="#outlets">Outlets</a></li>
+<li><a href="#labels">Labels</a></li>
+<li><a href="#textField">TextField</a></li>
+<li><a href="#dismissing-the-keyboard">Dismissing the Keyboard</a></li>
+<li><a href="#nstimer">NSTimer</a></li>
+</ul>
+
+<hr>
+
+<h2>
+<a id="purchasing-a-developer-license" class="anchor" href="#purchasing-a-developer-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Purchasing a developer license</h2>
+
+<p>In order to be able to submit your apps to the store, you will need to enroll on a paid membership for iOS app distribution, but <strong>you do not have to do this step</strong> if, for now, you just want to learn or start creating your app.</p>
 
 <ol>
-<li>Introduction</li>
-<li>Objective-C Basics
-<ul>
-<li>Variables and basic types</li>
-<li>Operators</li>
-<li>Object variables</li>
-</ul>
+<li>Go to <a href="http://developer.apple.com">http://developer.apple.com</a>
 </li>
-<li>iOS 9 Development</li>
-<li>......</li>
+<li>Then click <strong>Program</strong> on the top bar</li>
+<li>Click <strong>Enroll</strong>
+</li>
+<li>Sign in or create a new Apple ID</li>
+<li>Purchase the license for iOS Development</li>
 </ol>
 
+<hr>
+
+<h2>
+<a id="create-download-and-install-certificates" class="anchor" href="#create-download-and-install-certificates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create, download and install certificates</h2>
+
+<ol>
+<li>Go to <a href="http://developer.apple.com">http://developer.apple.com</a>
+
+<ul>
+<li>Enter <strong>member center</strong>
+</li>
+<li>Login</li>
+<li>Go to <strong>Certificates, Identifiers &amp; Profiles</strong>
+</li>
+<li>Click <strong>Certificates</strong>
+
+<ol>
+<li>Development
+
+<ul>
+<li>Click <strong>+</strong> to add a new <strong>iOS App Development</strong> certificate</li>
+</ul>
+</li>
+<li>Production
+
+<ul>
+<li>Click <strong>+</strong> to add a new <strong>Distribution Profile</strong> certificate</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Go to <strong>iOS Provisioning profiles</strong>
+
+<ul>
+<li>Click <strong>+</strong> to add a new <strong>iOS Distribution_ profile</strong>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Download and add to Xcode all the Certificates</li>
+</ol>
+
+<hr>
+
+<h2>
+<a id="create-an-app-id" class="anchor" href="#create-an-app-id" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create an App ID</h2>
+
+<ul>
+<li>On your browser:
+
+<ol>
+<li>Go to <a href="http://developer.apple.com">http://developer.apple.com</a>
+</li>
+<li>Click member center</li>
+<li>Certificates, identifiers &amp; profiles</li>
+<li>Identifiers</li>
+<li>iOS App Ids</li>
+<li>Add (+) a new one</li>
+</ol>
+</li>
+<li>On Xcode:
+
+<ol>
+<li>Create new project with same bundle identifier as the app added before</li>
+<li>Go to <em>Info.plist</em>
+</li>
+<li>Exchange <em>Bundle Identifier</em> for the one created before</li>
+</ol>
+</li>
+</ul>
+
+<hr>
+
+<h2>
+<a id="objective-c-variable-types" class="anchor" href="#objective-c-variable-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objective-C variable types</h2>
+
+<h3>
+<a id="basic-types" class="anchor" href="#basic-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic types</h3>
+
+<p>Objective-C inherits most of the primitive types, syntax, and flow control statements of C, so we have basic types like:</p>
+
+<div class="highlight highlight-source-objc"><pre>
+<span class="pl-k">int</span>
+<span class="pl-k">float</span>
+<span class="pl-k">double</span>
+<span class="pl-k">char</span>
+</pre></div>
+
+<p>But the most commonly used types in Objective-C are the following ones, mainly due to the fact that this variables can change its memory allocation size when declared according to the architecture where the code is running.</p>
+
+<div class="highlight highlight-source-objc"><pre>
+<span class="pl-k">NSInteger</span>
+<span class="pl-c1">CGFloat</span>
+<span class="pl-c1">NSNumber</span>
+<span class="pl-k">BOOL</span>  boolean values, uses <span class="pl-c1">YES</span> or <span class="pl-c1">NO</span> instead of the usual <span class="pl-c1">true</span> or <span class="pl-c1">false</span>,
+and translates to <span class="pl-c1">1</span> and <span class="pl-c1">0</span> respectively
+</pre></div>
+
+<p>As an example, here's the NSInteger implementation:</p>
+
+<div class="highlight highlight-source-objc"><pre>#<span class="pl-k">if</span> __LP64__
+<span class="pl-k">typedef</span> <span class="pl-k">long</span> <span class="pl-k">NSInteger</span>;
+#<span class="pl-k">else</span>
+<span class="pl-k">typedef</span> <span class="pl-k">int</span> <span class="pl-k">NSInteger</span>;
+#<span class="pl-k">endif</span></pre></div>
+
+<p>This is done automatically, and in most cases when passing a value as an argument to a function or returning a value from a function, this are the types of variables returned, nevertheless you should pay attention if the functions or APIs being called return this types or the others, to avoid problems with truncated values and so on.</p>
+
+<hr>
+
+<h2>
+<a id="actions" class="anchor" href="#actions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Actions</h2>
+
+<p>Actions enable us to trigger objects to perform tasks.</p>
+
+<p>Can be created manually or trough the interface builder.</p>
+
+<h4>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<hr>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* ViewController.h */</span>
+- (<span class="pl-k">IBAction</span>)actionButton:(<span class="pl-k">id</span>)sender;</pre></div>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* ViewController.m */</span>
+
+- (<span class="pl-k">IBAction</span>)actionButton:(<span class="pl-k">id</span>)sender {
+
+  <span class="pl-c">//DO SOMETHING</span>
+}</pre></div>
+
+<hr>
+
+<h2>
+<a id="outlets" class="anchor" href="#outlets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Outlets</h2>
+
+<p>Outlets display information triggered by the actions performed on the screen.</p>
+
+<p>Can be created manually or trough the interface builder or storyboard.</p>
+
+<h4>
+<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<hr>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* ViewController.h */</span>
+
+@property (weak, nonatomic) <span class="pl-k">IBOutlet</span> UILabel *label;</pre></div>
+
+<hr>
+
+<h2>
+<a id="labels" class="anchor" href="#labels" aria-hidden="true"><span class="octicon octicon-link"></span></a>Labels</h2>
+
+<p>Labels are objects used to display text.</p>
+
+<h4>
+<a id="example-2" class="anchor" href="#example-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<hr>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* Declaration */</span>
+
+@property (weak, nonatomic) <span class="pl-k">IBOutlet</span> UILabel *label;
+</pre></div>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* Change label text */</span>
+
+self.label.text = <span class="pl-s"><span class="pl-pds">@"</span>Hello World<span class="pl-pds">"</span></span>;</pre></div>
+
+<hr>
+
+<h2>
+<a id="textfield" class="anchor" href="#textfield" aria-hidden="true"><span class="octicon octicon-link"></span></a>TextField</h2>
+
+<p>TextField is an object that allows input from the user (like a search bar for example).</p>
+
+<h4>
+<a id="example-3" class="anchor" href="#example-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<hr>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* Declaration */</span>
+
+@property (weak, nonatomic) <span class="pl-k">IBOutlet</span> UITextField *textField;
+</pre></div>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* Change label text to textField input */</span>
+
+self.label.text = self.textField.text;</pre></div>
+
+<hr>
+
+<h2>
+<a id="text-properties" class="anchor" href="#text-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Text Properties</h2>
+
+<p>Change the text properties of objects that display text.</p>
+
+<h3>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h3>
+
+<hr>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* Change text color */</span>
+
+self.label.textColor = [UIColor <span class="pl-c1">blueColor</span>];
+</pre></div>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* Set text font size */</span>
+
+[<span class="pl-v">self</span>.label <span class="pl-c1">setFont:</span>[UIFont <span class="pl-c1">fontWithName:</span><span class="pl-s"><span class="pl-pds">@"</span>Arial<span class="pl-pds">"</span></span> <span class="pl-c1">size:</span><span class="pl-c1">30</span>]];
+</pre></div>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* Set text shadow */</span>
+
+self.label.layer.shadowColor = [[UIColor <span class="pl-c1">greyColor</span>] <span class="pl-c1">CGColor</span>];
+self.label.layer.shadowOpacity = <span class="pl-c1">0.7</span>;
+self.label.layer.shadowRadius = <span class="pl-c1">2</span>.<span class="pl-c1">0f</span>;
+self.label.layer.shadowOffset = CGSizeMake(<span class="pl-c1">1</span>, <span class="pl-c1">2</span>); <span class="pl-c">// x &amp; y offset</span>
+</pre></div>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* Align Text */</span>
+
+self.label.textAlignment = NSTextAlignmentLeft;
+self.label.textAlignment = NSTextAlignmentRight;
+self.label.textAlignment = NSTextAlignmentCenter;
+</pre></div>
+
+<hr>
+
+<h4>
+<a id="custom-font" class="anchor" href="#custom-font" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom font</h4>
+
+<ul>
+<li>Download font</li>
+<li>Drag and drop to <em>Xcode Supporting Files</em>
+</li>
+<li>Go to <em>info.plist</em>
+</li>
+<li>Add <em>Fonts provided by application</em>
+</li>
+<li>Add new item with font file name</li>
+</ul>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* On ViewDidLoad, if you want to apply the font right after the view is loaded */</span>
+
+self.label.font = [UIFont <span class="pl-c1">fontWithName:</span><span class="pl-s"><span class="pl-pds">@"</span>BebasNeue<span class="pl-pds">"</span></span> <span class="pl-c1">size:</span><span class="pl-c1">30</span>];
+</pre></div>
+
+<hr>
+
+<h2>
+<a id="dismissing-the-keyboard" class="anchor" href="#dismissing-the-keyboard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dismissing the Keyboard</h2>
+
+<ul>
+<li>Create a <em>Did End On Exit</em> action on a <em>textField</em>, for example</li>
+<li>Change <em>textField</em> atribute <em>Return Key</em> to <em>Done</em>
+</li>
+</ul>
+
+<hr>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* For compatibility with older iOS versions, add this to the action button method*/</span>
+
+[<span class="pl-v">self</span> <span class="pl-c1">resignFirstResponder</span>];</pre></div>
+
+<hr>
+
+<h2>
+<a id="nstimer" class="anchor" href="#nstimer" aria-hidden="true"><span class="octicon octicon-link"></span></a>NSTimer</h2>
+
+<h4>
+<a id="declaration-example" class="anchor" href="#declaration-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Declaration example</h4>
+
+<hr>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* ViewController.h */</span>
+
+#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>UIKit/UIKit.h<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">@interface</span> <span class="pl-en">ViewController</span> : <span class="pl-e">UIViewController</span> {
+
+  <span class="pl-c1">NSTimer</span> *timer;
+  <span class="pl-k">int</span> timeCounter;
+
+}
+
+<span class="pl-k">@property</span> (<span class="pl-k">weak</span>, <span class="pl-k">nonatomic</span>) <span class="pl-k">IBOutlet</span> UILabel *label;
+
+- (<span class="pl-k">IBAction</span>)<span class="pl-en">startCount</span><span class="pl-en">:</span>(<span class="pl-k">id</span>)<span class="pl-smi">sender</span>;
+
+<span class="pl-k">@end</span>
+
+</pre></div>
+
+<h4>
+<a id="implementation-example" class="anchor" href="#implementation-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementation example</h4>
+
+<hr>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/* ViewController.m</span>
+<span class="pl-c"></span>
+<span class="pl-c">   @implementation ViewControler</span>
+<span class="pl-c"></span>
+<span class="pl-c">   [...]</span>
+<span class="pl-c">*/</span>
+
+
+<span class="pl-c">// Action for a button that starts a timer</span>
+
+- (<span class="pl-k">IBAction</span>)startCount:(<span class="pl-k">id</span>)sender {
+
+  timeCounter = <span class="pl-c1">0</span>;
+
+  self.<span class="pl-smi">label</span>.<span class="pl-smi">text</span> = [<span class="pl-c1">NSString</span> <span class="pl-c1">stringWithFormat:</span><span class="pl-s"><span class="pl-pds">@"</span><span class="pl-c1">%i</span><span class="pl-pds">"</span></span>, timeCounter];
+
+
+<span class="pl-c">// Timer that refreshes every second by calling the countTime method</span>
+
+  timer = [<span class="pl-c1">NSTimer</span> <span class="pl-c1">scheduledTimerWithTimeInterval:</span><span class="pl-c1">1.0</span> <span class="pl-c1">target:</span><span class="pl-v">self</span> <span class="pl-c1">selector:</span><span class="pl-k">@selector</span>(<span class="pl-c1">countTime</span>) <span class="pl-c1">userInfo:</span><span class="pl-c1">nil</span> <span class="pl-c1">repeats:</span><span class="pl-c1">YES</span>];
+
+}
+
+- (<span class="pl-k">void</span>)countTime {
+
+  timeCounter += <span class="pl-c1">1</span>;
+
+  self.<span class="pl-smi">label</span>.<span class="pl-smi">text</span> = [<span class="pl-c1">NSString</span> <span class="pl-c1">stringWithFormat:</span><span class="pl-s"><span class="pl-pds">@"</span><span class="pl-c1">%i</span><span class="pl-pds">"</span></span>, timeCounter];
+
+}</pre></div>
+
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/gfdias/iOS-Objective-C-Diary">iOS &amp; Objective-C Diary</a> is maintained by <a href="https://github.com/gfdias">Gonçalo Dias</a>.</span>
+        <span class="site-footer-owner"><a href="https://github.com/gfdias/iOS-Objective-C-Diary">iOS &amp; Objective-C Diary</a> is maintained by <a href="https://github.com/gfdias">gfdias</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
 
     </section>
