@@ -36,6 +36,7 @@
 <li><a href="#purchasing-a-developer-license">Purchasing a developer license</a></li>
 <li><a href="#create-download-and-install-certificates">Create, download and install certificates</a></li>
 <li><a href="#create-an-app-id">Create an App ID</a></li>
+<li><a href="#objective-C-variables">Objective-C variable types</a></li>
 <li><a href="#actions">Actions</a></li>
 <li><a href="#outlets">Outlets</a></li>
 <li><a href="#labels">Labels</a></li>
@@ -136,6 +137,43 @@
 <hr>
 
 <h2>
+<a id="objective-c-variable-types" class="anchor" href="#objective-c-variable-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objective-C variable types</h2>
+
+<h3>
+<a id="basic-types" class="anchor" href="#basic-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic types</h3>
+
+<p>Objective-C inherits most of the primitive types, syntax, and flow control statements of C, so we have basic types like:</p>
+
+<div class="highlight highlight-source-objc"><pre>
+<span class="pl-k">int</span>
+<span class="pl-k">float</span>
+<span class="pl-k">double</span>
+<span class="pl-k">char</span>
+</pre></div>
+
+<p>But the most commonly used types in Objective-C are the following ones, mainly due to the fact that this variables can change its memory allocation size when declared according to the architecture where the code is running.</p>
+
+<div class="highlight highlight-source-objc"><pre>
+<span class="pl-k">NSInteger</span>
+<span class="pl-c1">CGFloat</span>
+<span class="pl-c1">NSNumber</span>
+<span class="pl-k">BOOL</span>  boolean values, uses <span class="pl-c1">YES</span> or <span class="pl-c1">NO</span> instead of the usual <span class="pl-c1">true</span> or <span class="pl-c1">false</span>,
+and translates to <span class="pl-c1">1</span> and <span class="pl-c1">0</span> respectively
+</pre></div>
+
+<p>As an example, here's the NSInteger implementation:</p>
+
+<div class="highlight highlight-source-objc"><pre>#<span class="pl-k">if</span> __LP64__
+<span class="pl-k">typedef</span> <span class="pl-k">long</span> <span class="pl-k">NSInteger</span>;
+#<span class="pl-k">else</span>
+<span class="pl-k">typedef</span> <span class="pl-k">int</span> <span class="pl-k">NSInteger</span>;
+#<span class="pl-k">endif</span></pre></div>
+
+<p>This is done automatically, and in most cases when passing a value as an argument to a function or returning a value from a function, this are the types of variables returned, nevertheless you should pay attention if the functions or APIs being called return this types or the others, to avoid problems with truncated values and so on.</p>
+
+<hr>
+
+<h2>
 <a id="actions" class="anchor" href="#actions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Actions</h2>
 
 <p>Actions enable us to trigger objects to perform tasks.</p>
@@ -164,7 +202,7 @@
 
 <p>Outlets display information triggered by the actions performed on the screen.</p>
 
-<p>Can be created manually or trough the interface builder.</p>
+<p>Can be created manually or trough the interface builder or storyboard.</p>
 
 <h4>
 <a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h4>
@@ -231,20 +269,20 @@ self.label.text = self.textField.text;</pre></div>
 
 <div class="highlight highlight-source-objc"><pre><span class="pl-c">/* Change text color */</span>
 
-self.label.textColor = [UIColor <span class="pl-c1">redColor</span>];
+self.label.textColor = [UIColor <span class="pl-c1">blueColor</span>];
 </pre></div>
 
 <div class="highlight highlight-source-objc"><pre><span class="pl-c">/* Set text font size */</span>
 
-[<span class="pl-v">self</span>.label <span class="pl-c1">setFont:</span>[UIFont <span class="pl-c1">fontWithName:</span><span class="pl-s"><span class="pl-pds">@"</span>Verdana<span class="pl-pds">"</span></span> <span class="pl-c1">size:</span><span class="pl-c1">25</span>]];
+[<span class="pl-v">self</span>.label <span class="pl-c1">setFont:</span>[UIFont <span class="pl-c1">fontWithName:</span><span class="pl-s"><span class="pl-pds">@"</span>Arial<span class="pl-pds">"</span></span> <span class="pl-c1">size:</span><span class="pl-c1">30</span>]];
 </pre></div>
 
 <div class="highlight highlight-source-objc"><pre><span class="pl-c">/* Set text shadow */</span>
 
-self.label.layer.shadowColor = [[UIColor <span class="pl-c1">blackColor</span>] <span class="pl-c1">CGColor</span>];
-self.label.layer.shadowOpacity = <span class="pl-c1">0.5</span>;
-self.label.layer.shadowRadius = <span class="pl-c1">1</span>.<span class="pl-c1">0f</span>;
-self.label.layer.shadowOffset = CGSizeMake(<span class="pl-c1">0</span>, <span class="pl-c1">2</span>); <span class="pl-c">// x &amp; y offset</span>
+self.label.layer.shadowColor = [[UIColor <span class="pl-c1">greyColor</span>] <span class="pl-c1">CGColor</span>];
+self.label.layer.shadowOpacity = <span class="pl-c1">0.7</span>;
+self.label.layer.shadowRadius = <span class="pl-c1">2</span>.<span class="pl-c1">0f</span>;
+self.label.layer.shadowOffset = CGSizeMake(<span class="pl-c1">1</span>, <span class="pl-c1">2</span>); <span class="pl-c">// x &amp; y offset</span>
 </pre></div>
 
 <div class="highlight highlight-source-objc"><pre><span class="pl-c">/* Align Text */</span>
@@ -272,7 +310,7 @@ self.label.textAlignment = NSTextAlignmentCenter;
 
 <div class="highlight highlight-source-objc"><pre><span class="pl-c">/* On ViewDidLoad, if you want to apply the font right after the view is loaded */</span>
 
-self.label.font = [UIFont <span class="pl-c1">fontWithName:</span><span class="pl-s"><span class="pl-pds">@"</span>BebasNeue<span class="pl-pds">"</span></span> <span class="pl-c1">size:</span><span class="pl-c1">50</span>];
+self.label.font = [UIFont <span class="pl-c1">fontWithName:</span><span class="pl-s"><span class="pl-pds">@"</span>BebasNeue<span class="pl-pds">"</span></span> <span class="pl-c1">size:</span><span class="pl-c1">30</span>];
 </pre></div>
 
 <hr>
