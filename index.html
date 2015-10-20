@@ -175,9 +175,10 @@ and translates to <span class="pl-c1">1</span> and <span class="pl-c1">0</span> 
 <hr>
 
 <h2>
-<a id="nsstring" class="anchor" href="#nsstring" aria-hidden="true"><span class="octicon octicon-link"></span></a>NSString</h2>
+<a id="nsstring-and-nsmutablestring" class="anchor" href="#nsstring-and-nsmutablestring" aria-hidden="true"><span class="octicon octicon-link"></span></a>NSString and NSMutableString</h2>
 
-<p>NSString is one of the most important classes that Objective-C offers, since it provides several powerful methods for creation, manipulation and searching of string contents.</p>
+<p>NSString is one of the most important classes that Objective-C offers, since it provides several powerful methods for creation, manipulation and searching of string contents.
+NSString objects are immutable. If we want to transform a given string we should use NSMutableString instead.</p>
 
 <h3>
 <a id="string-creation" class="anchor" href="#string-creation" aria-hidden="true"><span class="octicon octicon-link"></span></a>String Creation</h3>
@@ -194,6 +195,44 @@ and translates to <span class="pl-c1">1</span> and <span class="pl-c1">0</span> 
 
 Output will be <span class="pl-s"><span class="pl-pds">"</span>This is a string. I can write 666 different ones!<span class="pl-pds">"</span></span>
 </pre></div>
+
+<h3>
+<a id="string-manipulation" class="anchor" href="#string-manipulation" aria-hidden="true"><span class="octicon octicon-link"></span></a>String Manipulation</h3>
+
+<p>A list of useful methods for string manipulation:</p>
+
+<h4>
+<a id="string-length" class="anchor" href="#string-length" aria-hidden="true"><span class="octicon octicon-link"></span></a>String length</h4>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-k">int</span> stringLength = [myString <span class="pl-c1">length</span>];</pre></div>
+
+<h4>
+<a id="compare-strings" class="anchor" href="#compare-strings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compare Strings</h4>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c1">NSString</span> *stringA = <span class="pl-s"><span class="pl-pds">@"</span>A string<span class="pl-pds">"</span></span>;
+<span class="pl-c1">NSString</span> *stringB = <span class="pl-s"><span class="pl-pds">@"</span>B string<span class="pl-pds">"</span></span>;
+
+<span class="pl-k">if</span>([stringA <span class="pl-c1">isEqualToString:</span> stringB]) {
+  <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Equal Strings<span class="pl-pds">"</span></span>);
+}
+
+<span class="pl-k">if</span>([stringA <span class="pl-c1">hasPrefix:</span> <span class="pl-s"><span class="pl-pds">@"</span>A<span class="pl-pds">"</span></span>]) {
+  <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>It's A string<span class="pl-pds">"</span></span>);
+}
+
+<span class="pl-k">if</span>([stringB <span class="pl-c1">hasSuffix:</span> <span class="pl-s"><span class="pl-pds">@"</span>string<span class="pl-pds">"</span></span>]) {
+  <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Well...not that useful here<span class="pl-pds">"</span></span>);
+}</pre></div>
+
+<h4>
+<a id="combining-strings" class="anchor" href="#combining-strings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Combining Strings</h4>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c1">NSString</span> *firstString = <span class="pl-s"><span class="pl-pds">@"</span>Objective<span class="pl-pds">"</span></span>;
+<span class="pl-c1">NSString</span> *secondString = <span class="pl-s"><span class="pl-pds">@"</span>C<span class="pl-pds">"</span></span>;
+<span class="pl-c1">NSString</span> *thirdString = [firstString <span class="pl-c1">stringByAppendingString:</span>secondString]; <span class="pl-c">//results "ObjectiveC"</span>
+
+<span class="pl-c">// with format</span>
+<span class="pl-c1">NSString</span> *thirdString = [firstString <span class="pl-c1">stringByAppendingFormat:</span><span class="pl-s"><span class="pl-pds">@"</span>-<span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, secondString]; <span class="pl-c">//results "Objective-C"</span></pre></div>
 
 <hr>
 
