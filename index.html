@@ -37,6 +37,7 @@
 <li><a href="#create-download-and-install-certificates">Create, download and install certificates</a></li>
 <li><a href="#create-an-app-id">Create an App ID</a></li>
 <li><a href="#objective-c-variable-types">Objective-C variable types</a></li>
+<li><a href="#nsstring">NSString</a></li>
 <li><a href="#actions">Actions</a></li>
 <li><a href="#outlets">Outlets</a></li>
 <li><a href="#labels">Labels</a></li>
@@ -170,6 +171,29 @@ and translates to <span class="pl-c1">1</span> and <span class="pl-c1">0</span> 
 #<span class="pl-k">endif</span></pre></div>
 
 <p>This is done automatically, and in most cases when passing a value as an argument to a function or returning a value from a function, this are the types of variables returned, nevertheless you should pay attention if the functions or APIs being called return this types or the others, to avoid problems with truncated values and so on.</p>
+
+<hr>
+
+<h2>
+<a id="nsstring" class="anchor" href="#nsstring" aria-hidden="true"><span class="octicon octicon-link"></span></a>NSString</h2>
+
+<p>NSString is one of the most important classes that Objective-C offers, since it provides several powerful methods for creation, manipulation and searching of string contents.</p>
+
+<h3>
+<a id="string-creation" class="anchor" href="#string-creation" aria-hidden="true"><span class="octicon octicon-link"></span></a>String Creation</h3>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">// String literal</span>
+<span class="pl-c1">NSString</span> *myString = <span class="pl-s"><span class="pl-pds">@"</span>This is a string<span class="pl-pds">"</span></span>;
+
+<span class="pl-c">// String with a custom format</span>
+<span class="pl-k">int</span> someInt = <span class="pl-c1">666</span>;
+<span class="pl-c1">NSString</span> *myOtherString = [<span class="pl-c1">NSString</span> <span class="pl-c1">stringWithFormat:</span> <span class="pl-s"><span class="pl-pds">@"</span><span class="pl-c1">%@</span>. I can write @<span class="pl-c1">%d</span> different ones!<span class="pl-pds">"</span></span>,
+                          myString, someInt];
+
+<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span><span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, myOtherString);
+
+Output will be <span class="pl-s"><span class="pl-pds">"</span>This is a string. I can write 666 different ones!<span class="pl-pds">"</span></span>
+</pre></div>
 
 <hr>
 
@@ -403,6 +427,6 @@ self.label.font = [UIFont <span class="pl-c1">fontWithName:</span><span class="p
 
     </section>
 
-
+  
   </body>
 </html>
