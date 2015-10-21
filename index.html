@@ -179,7 +179,7 @@ and translates to <span class="pl-c1">1</span> and <span class="pl-c1">0</span> 
 
 <p>NSString is one of the most important classes that Objective-C offers, since it provides several powerful methods for creation, manipulation and searching of string contents.</p>
 
-<p>NSString objects are immutable. If we want to transform a given string we should use NSMutableString instead.</p>
+<p>NSString objects are immutable. If we want to mainly edit a given string we should use <strong>NSMutableString</strong> instead.</p>
 
 <h3>
 <a id="string-creation" class="anchor" href="#string-creation" aria-hidden="true"><span class="octicon octicon-link"></span></a>String Creation</h3>
@@ -228,12 +228,27 @@ Output will be <span class="pl-s"><span class="pl-pds">"</span>This is a string.
 <h4>
 <a id="combining-strings" class="anchor" href="#combining-strings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Combining Strings</h4>
 
-<div class="highlight highlight-source-objc"><pre><span class="pl-c1">NSString</span> *firstString = <span class="pl-s"><span class="pl-pds">@"</span>Objective<span class="pl-pds">"</span></span>;
-<span class="pl-c1">NSString</span> *secondString = <span class="pl-s"><span class="pl-pds">@"</span>C<span class="pl-pds">"</span></span>;
-<span class="pl-c1">NSString</span> *thirdString = [firstString <span class="pl-c1">stringByAppendingString:</span>secondString]; <span class="pl-c">//results "ObjectiveC"</span>
+<div class="highlight highlight-source-objc"><pre><span class="pl-c1">NSString</span> *firstString = <span class="pl-s"><span class="pl-pds">@"</span>NS<span class="pl-pds">"</span></span>;
+<span class="pl-c1">NSString</span> *secondString = <span class="pl-s"><span class="pl-pds">@"</span>String<span class="pl-pds">"</span></span>;
+<span class="pl-c1">NSString</span> *thirdString = [firstString <span class="pl-c1">stringByAppendingString:</span>secondString];
 
 <span class="pl-c">// with format</span>
-<span class="pl-c1">NSString</span> *thirdString = [firstString <span class="pl-c1">stringByAppendingFormat:</span><span class="pl-s"><span class="pl-pds">@"</span>-<span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, secondString]; <span class="pl-c">//results "Objective-C"</span></pre></div>
+<span class="pl-c1">NSString</span> *thirdString = [firstString <span class="pl-c1">stringByAppendingFormat:</span><span class="pl-s"><span class="pl-pds">@"</span><span class="pl-c1">%@</span> rocks!<span class="pl-pds">"</span></span>, secondString];</pre></div>
+
+<p><strong>NSMutableString</strong> - With NSMutableString we don't need to create a new string to do content transformations</p>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c1">NSString</span> *firstString = [<span class="pl-c1">NSMutableString</span> <span class="pl-c1">stringWithString:</span> <span class="pl-s"><span class="pl-pds">@"</span>NS<span class="pl-pds">"</span></span>];
+<span class="pl-c1">NSString</span> *secondString = <span class="pl-s"><span class="pl-pds">@"</span>String<span class="pl-pds">"</span></span>;
+[firstString <span class="pl-c1">appendString:</span> secondString];</pre></div>
+
+<h4>
+<a id="replace-characters-in-a-string" class="anchor" href="#replace-characters-in-a-string" aria-hidden="true"><span class="octicon octicon-link"></span></a>Replace Characters in a String</h4>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c1">NSString</span> *myString = <span class="pl-s"><span class="pl-pds">@"</span>Hello World<span class="pl-pds">"</span></span>;
+<span class="pl-c1">NSString</span> *otherString = [myString <span class="pl-c1">stringByReplacingOccurrencesOfString:</span><span class="pl-s"><span class="pl-pds">@"</span>Hello<span class="pl-pds">"</span></span>
+                                  <span class="pl-c1">withString:</span><span class="pl-s"><span class="pl-pds">@"</span>Goodbye<span class="pl-pds">"</span></span>];
+
+<span class="pl-c">// otherString is now "Goodbye World"</span></pre></div>
 
 <hr>
 
