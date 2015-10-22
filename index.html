@@ -246,7 +246,7 @@ Output will be <span class="pl-s"><span class="pl-pds">"</span>This is a string.
 
 <div class="highlight highlight-source-objc"><pre><span class="pl-c1">NSString</span> *myString = <span class="pl-s"><span class="pl-pds">@"</span>Hello World<span class="pl-pds">"</span></span>;
 <span class="pl-c1">NSString</span> *otherString = [myString <span class="pl-c1">stringByReplacingOccurrencesOfString:</span><span class="pl-s"><span class="pl-pds">@"</span>Hello<span class="pl-pds">"</span></span>
-                                  <span class="pl-c1">withString:</span><span class="pl-s"><span class="pl-pds">@"</span>Goodbye<span class="pl-pds">"</span></span>];
+                                                            <span class="pl-c1">withString:</span><span class="pl-s"><span class="pl-pds">@"</span>Goodbye<span class="pl-pds">"</span></span>];
 
 <span class="pl-c">// otherString is now "Goodbye World"</span></pre></div>
 
@@ -455,19 +455,19 @@ self.label.font = [UIFont <span class="pl-c1">fontWithName:</span><span class="p
 
 - (<span class="pl-k">IBAction</span>)startCount:(<span class="pl-k">id</span>)sender {
 
+
   timeCounter = <span class="pl-c1">0</span>;
 
   self.<span class="pl-smi">label</span>.<span class="pl-smi">text</span> = [<span class="pl-c1">NSString</span> <span class="pl-c1">stringWithFormat:</span><span class="pl-s"><span class="pl-pds">@"</span><span class="pl-c1">%i</span><span class="pl-pds">"</span></span>, timeCounter];
 
 
-<span class="pl-c">// Timer that refreshes every second by calling the countTime method</span>
+  <span class="pl-c">// Timer that refreshes every second by calling the countTime method</span>
 
   timer = [<span class="pl-c1">NSTimer</span> <span class="pl-c1">scheduledTimerWithTimeInterval:</span><span class="pl-c1">1.0</span>
-                   <span class="pl-c1">target:</span><span class="pl-v">self</span>
-                    <span class="pl-c1">selector:</span><span class="pl-k">@selector</span>(<span class="pl-c1">countTime</span>)
-                    <span class="pl-c1">userInfo:</span><span class="pl-c1">nil</span>
-                    <span class="pl-c1">repeats:</span><span class="pl-c1">YES</span>];
-
+                                           <span class="pl-c1">target:</span><span class="pl-v">self</span>
+                                         <span class="pl-c1">selector:</span><span class="pl-k">@selector</span>(<span class="pl-c1">countTime</span>)
+                                         <span class="pl-c1">userInfo:</span><span class="pl-c1">nil</span>
+                                          <span class="pl-c1">repeats:</span><span class="pl-c1">YES</span>];
 }
 
 - (<span class="pl-k">void</span>)countTime {
