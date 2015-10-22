@@ -37,7 +37,7 @@
 <li><a href="#create-download-and-install-certificates">Create, download and install certificates</a></li>
 <li><a href="#create-an-app-id">Create an App ID</a></li>
 <li><a href="#objective-c-variable-types">Objective-C variable types</a></li>
-<li><a href="#nsstring-and-nsmutablestring">NSString</a></li>
+<li><a href="#nsstring-and-nsmutablestring">NSString and NSMutableString</a></li>
 <li><a href="#actions">Actions</a></li>
 <li><a href="#outlets">Outlets</a></li>
 <li><a href="#labels">Labels</a></li>
@@ -462,7 +462,11 @@ self.label.font = [UIFont <span class="pl-c1">fontWithName:</span><span class="p
 
 <span class="pl-c">// Timer that refreshes every second by calling the countTime method</span>
 
-  timer = [<span class="pl-c1">NSTimer</span> <span class="pl-c1">scheduledTimerWithTimeInterval:</span><span class="pl-c1">1.0</span> <span class="pl-c1">target:</span><span class="pl-v">self</span> <span class="pl-c1">selector:</span><span class="pl-k">@selector</span>(<span class="pl-c1">countTime</span>) <span class="pl-c1">userInfo:</span><span class="pl-c1">nil</span> <span class="pl-c1">repeats:</span><span class="pl-c1">YES</span>];
+  timer = [<span class="pl-c1">NSTimer</span> <span class="pl-c1">scheduledTimerWithTimeInterval:</span><span class="pl-c1">1.0</span>
+                   <span class="pl-c1">target:</span><span class="pl-v">self</span>
+                    <span class="pl-c1">selector:</span><span class="pl-k">@selector</span>(<span class="pl-c1">countTime</span>)
+                    <span class="pl-c1">userInfo:</span><span class="pl-c1">nil</span>
+                    <span class="pl-c1">repeats:</span><span class="pl-c1">YES</span>];
 
 }
 
